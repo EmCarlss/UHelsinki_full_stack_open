@@ -4,14 +4,16 @@ sequenceDiagram
     participant browser
     participant server
 
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    browser->>server: POST https://fullstack-exampleapp.herokuapp.com/new_note
     activate server
-    server-->>browser: HTML document
+    server-->>browser: HTTP status code 302
     deactivate server
 
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    browser->>server: GET /notes
     activate server
-    server-->>browser: the css file
+    server-->>browser: the css file (main.css)
+    server-->>browser: the javascript code (main.js)
+    server-->>browser: the raw data (data.json)
     deactivate server
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
