@@ -9,16 +9,22 @@ sequenceDiagram
     server-->>browser: HTTP status code 302
     deactivate server
 
-    browser->>server: GET /notes
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
     server-->>browser: the css file (main.css)
     server-->>browser: the javascript code (main.js)
     server-->>browser: the raw data (data.json)
     deactivate server
 
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>browser: the CSS file
+    deactivate server
+
+
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
     activate server
-    server-->>browser: the JavaScript file
+    server-->>browser: the JS file
     deactivate server
 
     Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server
