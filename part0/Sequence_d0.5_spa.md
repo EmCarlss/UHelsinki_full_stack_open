@@ -4,7 +4,7 @@ sequenceDiagram
     participant browser
     participant server
 
-    Note right of browser: Scenario - the user goes to the single page version of the notes app.
+    Note right of browser: Scenario - the user goes to the single page version of the notes app. In the SPA only one HTML page is fetched.
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
     activate server
