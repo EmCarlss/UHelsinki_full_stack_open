@@ -11,7 +11,7 @@ sequenceDiagram
     server-->>browser: browser loads the spa page 
     deactivate server
 
-    Note right of browser: The reload causes 3 more GET requests.
+    Note right of browser: The load causes 3 more GET requests.
     
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
     activate server
