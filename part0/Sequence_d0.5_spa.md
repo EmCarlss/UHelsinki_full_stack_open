@@ -4,10 +4,27 @@ sequenceDiagram
     participant browser
     participant server
 
-    Note right of browser: User goes to the single page version of the notes app.
-    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    Note right of browser: Scenario - the user goes to the single page version of the notes app.
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
     activate server
-    server-->>browser: HTTP status code 201 (Created). JavaScript code it fetched from the server.
+    server-->>browser: browser loads the spa page 
     deactivate server
-    Note right of browser: No new requst is sent.
+
+    Note right of browser: The reload causes 3 more GET requests.
+    
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>browser: the CSS file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+    activate server
+    server-->>browser: the JS file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: the raw data of the notes
+    deactivate server
 ```
